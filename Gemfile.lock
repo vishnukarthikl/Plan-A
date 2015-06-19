@@ -38,13 +38,16 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.0)
     bcrypt (3.1.7)
-    binding_of_caller (0.7.2)
+    binding_of_caller (0.7.3.pre1)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (5.0.0)
-      columnize (= 0.9.0)
+    byebug (3.4.0)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
     columnize (0.9.0)
     debug_inspector (0.0.2)
+    debugger-linecache (1.2.0)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -52,8 +55,12 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dotenv (1.0.2)
     erubis (2.7.0)
     execjs (2.5.2)
+    foreman (0.77.0)
+      dotenv (~> 1.0.2)
+      thor (~> 0.19.1)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -76,6 +83,7 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    pg (0.17.1)
     rack (1.6.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -98,6 +106,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.3)
     railties (4.2.0.rc3)
       actionpack (= 4.2.0.rc3)
       activesupport (= 4.2.0.rc3)
@@ -118,14 +131,15 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    spring (1.3.6)
+    slop (3.6.0)
+    spring (1.1.3)
     sprockets (3.2.0)
       rack (~> 1.0)
     sprockets-rails (2.3.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sqlite3 (1.3.10)
+    sqlite3 (1.3.9)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -136,24 +150,29 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
-    web-console (2.1.3)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
+    web-console (2.0.0.beta3)
+      activemodel (~> 4.0)
+      binding_of_caller (= 0.7.3.pre1)
+      railties (~> 4.0)
       sprockets-rails (>= 2.0, < 4.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
+  byebug (= 3.4.0)
   devise
+  foreman
   jbuilder (~> 2.0)
   jquery-rails (= 4.0.0.beta2)
+  pg (= 0.17.1)
   rails (= 4.2.0.rc3)
+  rails_12factor (= 0.0.2)
+  rails_serve_static_assets
+  rails_stdout_logging
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  spring
-  sqlite3
+  spring (= 1.1.3)
+  sqlite3 (= 1.3.9)
   uglifier (>= 1.3.0)
-  web-console (~> 2.0)
+  web-console (= 2.0.0.beta3)
