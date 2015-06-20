@@ -1,0 +1,11 @@
+planA = angular.module('planA', ['ngResource'])
+.controller('ProfileSetupCtrl', @ProfileSetupCtrl)
+.factory('UserService', ($resource) ->
+  $resource('/users/:id', {id: "@id"},
+    {update: {method: "PUT"}}, isArray: true)
+)
+.directive('serverError',@ServerError)
+.config ["$httpProvider", ($httpProvider) ->
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+    $httpProvider.defaults.headers.common.Accept = 'application/json'
+]
