@@ -1,32 +1,38 @@
 <div ng-controller="ProfileSetupCtrl">
   <div id="data" data-user-id="<%= @user.id %>"></div>
-  <div class="border-form-div" id="userSetup">
-    <h3>Basic Info</h3>
 
-    <form name="userForm" ng-submit="saveUser()" novalidate>
-      <div class="form-group" ng-class="{'has-error': userForm.name.$invalid}">
-        <label class="control-label" for="name">Name</label>
-        <br/>
-        <input type="text" id="name" name="name" ng-model="user.name" server-error class="form-control col-md-12"/>
+  <div ng-switch on="setupFor">
+    <div class="border-form-div" id="userSetup" ng-switch-when="user">
+      <h3>Basic Info</h3>
 
-        <div class="help-block" ng-show="userForm.name.$invalid">
-          <span ng-show="userForm.name.$error.server">{{errors.name}}</span>
+      <form name="form.user" ng-submit="saveUser()" novalidate>
+        <div class="form-group" ng-class="{'has-error': form.user.name.$invalid}">
+          <label class="control-label" for="name">Name</label>
+          <br/>
+          <input type="text" id="name" name="name" ng-model="user.name" server-error class="form-control col-md-12"/>
+
+          <div class="help-block" ng-show="form.user.name.$invalid">
+            <span ng-show="form.user.name.$error.server">{{errors.name}}</span>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group" ng-class="{'has-error': userForm.current_city.$invalid}">
-        <label class="control-label" for="current_city">Current city</label>
-        <br/>
-        <input type="text" id="current_city" name="current_city" ng-model="user.current_city" server-error class="form-control col-md-12"/>
+        <div class="form-group" ng-class="{'has-error': form.user.current_city.$invalid}">
+          <label class="control-label" for="current_city">Current city</label>
+          <br/>
+          <input type="text" id="current_city" name="current_city" ng-model="user.current_city" server-error class="form-control col-md-12"/>
 
-        <div class="help-block" ng-show="userForm.current_city.$invalid">
-          <span ng-show="userForm.current_city.$error.server">{{errors.current_city}}</span>
+          <div class="help-block" ng-show="form.user.current_city.$invalid">
+            <span ng-show="form.user.current_city.$error.server">{{errors.current_city}}</span>
+          </div>
         </div>
-      </div>
 
-      <div class="actions">
-        <input type="submit" class="btn btn-primary"/>
-      </div>
-    </form>
+        <div class="actions">
+          <input type="submit" class="btn btn-primary"/>
+        </div>
+      </form>
+    </div>
+    <div class="border-form-div" id="groupSetup" ng-switch-when="group">
+      Group Setup
+    </div>
   </div>
 </div>
